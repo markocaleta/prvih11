@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: prvih11
+  # .env se traži u mapi iz koje se aplikacija pokreće i jednu razinu iznad
+  config:
+    import: optional:file:.env[.properties],optional:file:../.env[.properties]
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/prvih11}
+    username: ${DB_USERNAME:prvih11}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
